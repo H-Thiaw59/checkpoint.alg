@@ -1,0 +1,146 @@
+Checkpoint.algo
+
+---
+
+📄 1️⃣ probleme1.algo
+
+Somme des éléments distincts de deux tableaux
+
+Algorithme SommeElementsDistincts
+// Ce programme calcule la somme des éléments
+// présents dans un seul des deux tableaux
+
+Variables
+    T1 : tableau d'entiers
+    T2 : tableau d'entiers
+    i, j : entiers
+    somme : entier
+    trouve : booléen
+
+Début
+    // Initialisation des tableaux (exemple)
+    T1 ← [3, 1, 7, 9]
+    T2 ← [2, 4, 1, 9, 3]
+
+    somme ← 0
+
+    // Parcours du premier tableau
+    Pour i de 0 à longueur(T1)-1 Faire
+        trouve ← Faux
+        Pour j de 0 à longueur(T2)-1 Faire
+            Si T1[i] = T2[j] Alors
+                trouve ← Vrai
+            FinSi
+        FinPour
+
+        Si trouve = Faux Alors
+            somme ← somme + T1[i]
+        FinSi
+    FinPour
+
+    // Parcours du deuxième tableau
+    Pour i de 0 à longueur(T2)-1 Faire
+        trouve ← Faux
+        Pour j de 0 à longueur(T1)-1 Faire
+            Si T2[i] = T1[j] Alors
+                trouve ← Vrai
+            FinSi
+        FinPour
+
+        Si trouve = Faux Alors
+            somme ← somme + T2[i]
+        FinSi
+    FinPour
+
+    Afficher "Somme des éléments distincts = ", somme
+Fin
+
+
+---
+
+📄 2️⃣ probleme2_procedure.algo
+
+Produit scalaire avec procédure + test d’orthogonalité
+
+Procédure dot_product(v1, v2 : tableaux de réels, n : entier, ps : réel)
+// Cette procédure calcule le produit scalaire
+Variables
+    i : entier
+Début
+    ps ← 0
+    Pour i de 0 à n-1 Faire
+        ps ← ps + (v1[i] * v2[i])
+    FinPour
+Fin
+
+Algorithme TestOrthogonalite_Procedure
+Variables
+    v1, v2 : tableaux de réels
+    ps : réel
+    n : entier
+
+Début
+    // Initialisation des vecteurs
+    v1 ← [1, 2, 3]
+    v2 ← [-6, 3, 0]
+    n ← 3
+
+    Appeler dot_product(v1, v2, n, ps)
+
+    Si ps = 0 Alors
+        Afficher "Les vecteurs sont orthogonaux"
+    Sinon
+        Afficher "Les vecteurs ne sont pas orthogonaux"
+    FinSi
+Fin
+
+
+---
+
+📄 3️⃣ probleme2_fonction.algo
+
+Produit scalaire avec fonction
+
+Fonction dot_product(v1, v2 : tableaux de réels, n : entier) : réel
+// Cette fonction retourne le produit scalaire
+Variables
+    i : entier
+    ps : réel
+Début
+    ps ← 0
+    Pour i de 0 à n-1 Faire
+        ps ← ps + (v1[i] * v2[i])
+    FinPour
+    Retourner ps
+Fin
+
+Algorithme TestOrthogonalite_Fonction
+Variables
+    v1, v2 : tableaux de réels
+    ps : réel
+    n : entier
+
+Début
+    // Initialisation des vecteurs
+    v1 ← [1, 2, 3]
+    v2 ← [-6, 3, 0]
+    n ← 3
+
+    ps ← dot_product(v1, v2, n)
+
+    Si ps = 0 Alors
+        Afficher "Les vecteurs sont orthogonaux"
+    Sinon
+        Afficher "Les vecteurs ne sont pas orthogonaux"
+    FinSi
+Fin
+
+
+
+
+checkpoint-gomycode/
+│
+├── README.md
+├── probleme1.algo
+├── probleme2_procedure.algo
+└── probleme2_fonction.algo
